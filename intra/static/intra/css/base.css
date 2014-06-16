@@ -1,18 +1,6 @@
-body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-a {
-	color: rgb( 4, 174, 218);
-	text-decoration: none;
-}
-
 /*
 **
-/* Input Form Transformations
+** Input Form Transformations
 **
 */
 
@@ -130,3 +118,5 @@ input[type=search]:focus {
 	padding-left: 4,2em;
 	border: 1px solid #fff;
 }
+
+/* BreadCrumb */

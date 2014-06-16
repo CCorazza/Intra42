@@ -1,12 +1,23 @@
+/*
+**
+** Principal Definitions for Great Ensembles
+**
+*/
+
 html {
-    position: relative;
     min-height: 100%;
 }
 
 body {
-    background-color: pink;
-    margin: 0 0 100px;
-    padding: 25px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: rgb( 4, 174, 218);
+    text-decoration: none;
 }
 
 footer {
@@ -26,88 +37,6 @@ footer {
 #content {
     text-align: center;
     margin-bottom: 60px;
-}
-
-.forum_category {
-    font-size: large;
-}
-
-.thread {
-    font-size: large;
-}
-
-.message_container {
-    border: solid black 1px;
-    width: 15%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.message {
-    font-size: medium;
-    text-align: justify;
-}
-
-.comment_container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-}
-
-.comment {
-    font-size: small;
-    text-align: justify;
-}
-
-.add_comment_container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1%;
-}
-
-.author {
-    font-size: x-small;
-    font-style: italic;
-}
-
-.ticket {
-    font-size: large;
-}
-
-.reply_container, .add_thread_container {
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-}
-
-.justifed {
-    text-align: justify;
-}
-
-.xs-spacing {
-    margin-top: 20px;
-}
-
-.s-spacing {
-    margin-top: 60px;
-}
-
-.spacing {
-    margin-top: 100px;
-}
-
-.center-large {
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
 }
 
 /* Bootstrap overides */
