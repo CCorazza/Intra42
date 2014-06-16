@@ -1,0 +1,5 @@
+*.[oa]
+*.pdf
+*~
+*.sw[mnop]
+/Not_To_Push
