@@ -1,0 +1,43 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+
+{% block title %}Such tickets{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>{% trans "My tickets" %}</h1>
+  {% if tickets %}
+    <div class="s-spacing"></div>
+    <div class="list-group">
+    {% for ticket in tickets %}
+      <a class="ticket list-group-item center {% if ticket.closed %}list-group-item-success{% else %}list-group-item-info{% endif %}" href="{% url 'tickets:ticket' ticket.id %}">
+        <h4 class="list-group-item-heading">{{ ticket }}</h4>
+        <p class="author list-group-item-text">{{ ticket.author.username }}</p>
+      </a>
+    {% endfor %}
+    </div>
+  {% else %}
+    <p>{% trans "You currently have no tickets" %}</p>
+  {% endif %}
+</div>
+<div class="spacing"></div>
+<div class="add_thread_container input_group">
+  <fieldset>
+    <legend>{% trans "Create a new ticket:" %}</legend>
+    <form action="{% url 'tickets:new_ticket' %}" method="post">{% csrf_token %}
+      <input type="text" name="ticket_title" class="form-control" placeholder="{% trans 'ticket title' %}">
+      <br>
+      <textarea class="form-control" rows="10" cols="50" name="content" placeholder="{% trans 'Your message...' %}"></textarea>
+      <br>
+      <button type="submit" class="btn btn-default">{% trans "send" %}</button>
+    </form>
+  </fieldset>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+  <li class="active">{% trans "Tickets" %}</li>
+</ol>
+{% endblock %}

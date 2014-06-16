@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html>
+<meta charset="UTF-8">
+	<head>
+		<title>Intra42 - {% block title %}Accueil{% endblock %}</title>
+		{% load staticfiles %}
+		{% load i18n %}
+		{% block head %}
+		<link href="{% static 'intra/css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+		<link href="{% static 'intra/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+		<link href="{% static 'intra/css/style.css' %}" rel="stylesheet" madia="all">
+		<link href="{% static 'intra/css/test.css' %}" rel="stylesheet" madia="all">
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="{% static 'intra/js/bootstrap.min.js' %}"></script>
+		{% endblock %}
+		<style>
+		{% block extra_css %}
+		{% endblock %}
+		</style>
+	</head>
+	<body>
+		<div id="search">
+			<form id="search">
+				<input type="search" placeholder="Recherche">
+			</form>
+		{% block top %}
+			<span>
+				<a href="/logout">
+				<img id="logout" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__expand.png">
+				Log Out</a>
+			</span>
+		{% endblock %}
+		</div>
+		<div id="nav">
+			<table>
+				<tr><a href=/>
+					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__home.png">
+					 Home
+				</a><br /></tr>
+			{% block navigation %}
+				<tr><a href="/users">
+					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__touch.png">
+					LDAP 
+				</a><br /></tr>
+				<tr><a href=#>
+					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__tasks.png">
+					 Modules
+				</a><br /></tr>
+				<tr><a href="/forum">
+					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__keyboard.png">
+					 Forum
+				</a><br /></tr>
+				<tr><a href="/tickets">
+					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__msg.png">
+					 Tickets
+				</a><br /></tr>
+				<tr><a href=#>
+					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__sett-big.png">
+					 Administration
+				</a><br /></tr>
+			{% endblock %}
+			</table>
+		</div>
+		<div id="container">
+		<div id="alerts">
+				<p class="alert_msg">
+					<img class="icn" src="https://cdn1.iconfinder.com/data/icons/de-munich-icon-pack/32x32/freelance.png">
+					<span>Message d'exemple</span>
+				</p>
+			</div>
+		{% block content %}
+			<p> There is no Spoon </p>
+		{% endblock %}
+		</div>
+		{% block breadcrumbs %}
+		{% endblock %}
+	</body>
+</html>
+

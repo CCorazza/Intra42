@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-27 16:31+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: intra/settings.py:85
+msgid "English"
+msgstr "Anglais"
+
+#: intra/settings.py:86
+msgid "French"
+msgstr "Français"
+
+#: intra/templates/intra/base.html:21
+#: intra/templates/intra/index.html:14 auth/templates/auth/login.html:40
+#: auth/templates/auth/register.html:43
+#: forum/templates/forum/categories.html:59
+#: forum/templates/forum/index.html:28 forum/templates/forum/thread.html:61
+#: tickets/templates/tickets/index.html:39
+#: tickets/templates/tickets/spool.html:55
+#: tickets/templates/tickets/ticket.html:45
+msgid "Home"
+msgstr "Accueil"
+
+#: intra/templates/intra/base.html:26
+#: forum/templates/forum/categories.html:9
+#: forum/templates/forum/categories.html:60 forum/templates/forum/index.html:8
+#: forum/templates/forum/index.html:29 forum/templates/forum/thread.html:62
+msgid "Forum"
+msgstr "Forum"
+
+#: intra/templates/intra/base.html:32
+#: intra/templates/intra/base.html:39
+#: tickets/templates/tickets/index.html:40
+#: tickets/templates/tickets/spool.html:56
+#: tickets/templates/tickets/ticket.html:46
+msgid "Tickets"
+msgstr "Billets"
+
+#: intra/templates/intra/base.html:45
+#: tickets/templates/tickets/spool.html:8
+#: tickets/templates/tickets/spool.html:57
+msgid "Spool"
+msgstr "Spool"
+
+#: intra/templates/intra/base.html:57
+msgid "My account"
+msgstr "Mon compte"
+
+#: intra/templates/intra/base.html:67
+msgid "administration"
+msgstr "administration"
+
+#: intra/templates/intra/base.html:73
+msgid "log out"
+msgstr "Se déconnecter"
+
+#: intra/templates/intra/base.html:79 auth/templates/auth/login.html:33
+#: auth/templates/auth/login.html.py:41
+msgid "Log in"
+msgstr "Se connecter"
+
+#: intra/templates/intra/base.html:84
+#: auth/templates/auth/register.html:36 auth/templates/auth/register.html:44
+msgid "Sign in"
+msgstr "Créer un compte"
+
+#: intra/templates/intra/base.html:95
+msgid "Language"
+msgstr "Langue"
+
+#: intra/templates/intra/index.html:8
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: forum/templates/forum/categories.html:14
+msgid "Subcategories"
+msgstr "Sous catégories"
+
+#: forum/templates/forum/categories.html:26
+msgid "Threads"
+msgstr "Sujets"
+
+#: forum/templates/forum/categories.html:36
+msgid "No threads in this category yet"
+msgstr "Pas encore de sujets dans cette catégorie"
+
+#: forum/templates/forum/categories.html:43
+msgid "Create a new thread:"
+msgstr "Créer un nouveau sujet :"
+
+#: forum/templates/forum/categories.html:46
+msgid "Thread title"
+msgstr "Sujet"
+
+#: forum/templates/forum/categories.html:48
+#: tickets/templates/tickets/index.html:29
+msgid "Your message..."
+msgstr "Votre message..."
+
+#: forum/templates/forum/categories.html:50
+#: forum/templates/forum/thread.html:52
+#: tickets/templates/tickets/index.html:31
+#: tickets/templates/tickets/ticket.html:36
+msgid "send"
+msgstr "envoyer"
+
+#: forum/templates/forum/index.html:13
+msgid "Categories"
+msgstr "Catégories"
+
+#: forum/templates/forum/thread.html:7
+msgid "Thread"
+msgstr "Sujet"
+
+#: forum/templates/forum/thread.html:31
+msgid "Comment this post..."
+msgstr "Commentez ce message..."
+
+#: forum/templates/forum/thread.html:46
+#: tickets/templates/tickets/ticket.html:30
+msgid "Reply:"
+msgstr "Repondre :"
+
+#: forum/templates/forum/thread.html:50
+msgid "Reply to this thread..."
+msgstr "Répondez à ce sujet..."
+
+#: tickets/templates/tickets/index.html:8
+msgid "My tickets"
+msgstr "Mes Billets"
+
+#: tickets/templates/tickets/index.html:19
+msgid "You currently have no tickets"
+msgstr "Vous n'avez actuellement aucun billet"
+
+#: tickets/templates/tickets/index.html:25
+msgid "Create a new ticket:"
+msgstr "Créer un nouveau billet :"
+
+#: tickets/templates/tickets/index.html:27
+msgid "ticket title"
+msgstr "Sujet du billet"
+
+#: tickets/templates/tickets/spool.html:23
+msgid "Assign to"
+msgstr "Assigner à"
+
+#: tickets/templates/tickets/spool.html:42
+msgid "closed"
+msgstr "fermé"
+
+#: tickets/templates/tickets/spool.html:48
+msgid "You currently have no tickets assigned"
+msgstr "Vous n'avez actuellement aucun billet assigné"
+
+#: tickets/templates/tickets/ticket.html:7
+msgid "Ticket:"
+msgstr "Billet:"
+
+#: tickets/templates/tickets/ticket.html:9
+msgid "Currently assigned to"
+msgstr "Actuellement assigné à"
+
+#: tickets/templates/tickets/ticket.html:24
+msgid "Ticket closed"
+msgstr "Billet fermé"
+
+#: tickets/templates/tickets/ticket.html:34
+msgid "Reply to this ticket..."
+msgstr "Répondez à ce billet..."

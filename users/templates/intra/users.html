@@ -1,0 +1,57 @@
+{% extends 'intra/base.html' %}
+{% block title %}Yearbook{% endblock %}
+{% block extra_css %}
+img {
+    border-radius: 9%;
+    max-width: 84px;
+}
+
+p { margin: 1px;  }
+
+.display {
+    display: inline-block;
+    min-width: 190px;
+    margin: 3px 3px;
+    background-color: rgb(242, 242, 242);
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.display a a:focus a:hover {
+	color: rgb(242, 242, 242);
+	text-decoration: none;
+}
+
+#name {
+     font-variant: small-caps;
+}
+
+#login {
+    color: #888888;
+    font-style: oblique;
+}
+
+#container {
+	margin: auto;
+	text-align: center;
+	overflow: auto;
+}
+{% endblock %}
+{% block container %}
+  {% for data in datas %}
+    <a target="_blank" href="/users/profile/{{ data.uid }}">
+    <div class="display">
+      <img src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
+	   onerror="this.src='https://Project2.42.fr/static7029/img/nopicture-profilview.png';" />
+      
+      <p><b>
+        <span id="name">
+	  {{ data.first_name|truncatechars:16 }}<br />
+	  {{ data.last_name|truncatechars:16 }}
+	</span>
+      </b></p>
+      <span id="login">( {{ data.uid }} )</span>
+    </div>
+    </a>
+  {% endfor %}
+{% endblock %}

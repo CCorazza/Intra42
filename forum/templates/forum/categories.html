@@ -1,0 +1,64 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+
+{% block title %}Such categories{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>
+    {% trans "Forum" %} {{ category }}
+    {% if category.parent_category %} ({{ category.parent_category }}) {% endif %}
+  </h1>
+  {% if sub_categories %}
+    <div class="s-spacing"></div>
+    <h3>{% trans "Subcategories" %}</h3>
+    <div class="xs-spacing"></div>
+    <div class="list-group">
+    {% for sub_category in sub_categories %}
+      <a class="forum_category list-group-item center" href="{% url 'forum:category' sub_category.id %}">
+        {{ sub_category }}
+      </a>
+    {% endfor %}
+    </div>
+  {% endif %}
+  {% if threads %}
+    <div class="s-spacing"></div>
+    <h3>{% trans "Threads" %}</h3>
+    <div class="xs-spacing"></div>
+    <div class="list-group">
+    {% for thread in threads %}
+      <a class="thread list-group-item center" href="{% url 'forum:thread' thread.id %}">
+        <h2 class="list-group-item-heading">{{ thread }}</h2>
+        <p class="author list-group-item-text">{{ thread.author }}</p>
+      </a>
+    {% endfor %}
+    </div>
+  {% else %}
+    <p>{% trans "No threads in this category yet" %}</p>
+  {% endif %}
+</div>
+<div class="spacing"></div>
+{% if user.is_authenticated %}
+  <div class="add_thread_container input_group">
+    <fieldset>
+      <legend>{% trans "Create a new thread:" %}</legend>
+      <form action="{% url 'forum:new_thread' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="category_id" value="{{ category.id }}">
+        <input type="text" name="thread_title" class="form-control" placeholder="{% trans 'Thread title' %}">
+        <br>
+        <textarea class="form-control" rows="10" cols="50" name="content" placeholder="{% trans 'Your message...' %}"></textarea>
+        <br>
+        <button type="submit" class="btn btn-default">{% trans "send" %}</button>
+      </form>
+    </fieldset>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+  <li><a href="{% url 'forum:index' %}">{% trans "Forum" %}</a></li>
+  <li class="active">{{ category }}</li>
+</ol>
+{% endblock %}

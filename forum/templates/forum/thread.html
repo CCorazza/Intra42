@@ -1,0 +1,67 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+
+{% block title %}Such thread{% endblock %}
+
+{% block content %}
+<h1>{% trans "Thread" %} : {{ thread }}</h1>
+<div class="spacing"></div>
+<div class="list-group">
+{% for post in posts %}
+  <div class="list-group-item center">
+    <p class="message">
+      {{ post.0.content }}<br>
+      <span class="author">{{ post.0.author }} &mdash; {{ post.0.pub_date }}</span>
+    </p>
+    {% if post.1 %}
+      <div class="comment_container">
+      {% for comment in post.1 %}
+        <p class="comment">
+        {{ comment.content }}
+        <span class="author">{{ comment.author }} &mdash; {{ comment.pub_date }}</span>
+        </p>
+      {% endfor %}
+      </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+      <div class="add_comment_container">
+        <form action="{% url 'forum:new_comment' %}" method="post">{% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.path }}">
+          <input type="hidden" name="message_id" value="{{ post.0.id }}">
+          <div class="input-group">
+            <input type="text" name="content" placeholder="{% trans 'Comment this post...' %}" class="form-control">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">OK</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    {% endif %}
+  </div>
+  <div class="xs-spacing"></div>
+{% endfor %}
+</div>
+<div class="s-spacing"></div>
+{% if user.is_authenticated %}
+  <div class="reply_container">
+    <fieldset>
+    <legend>{% trans "Reply:" %}</legend>
+      <form action="{% url 'forum:new_post' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <input type="hidden" name="thread_id" value="{{ thread.id }}">
+        <textarea rows="10" cols="50" name="content" placeholder="{% trans 'Reply to this thread...' %}"></textarea>
+        <br>
+        <button type="submit" class="btn btn-default">{% trans "send" %}</button>
+      </form>
+    </fieldset>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+  <li><a href="{% url 'forum:index' %}">{% trans "Forum" %}</a></li>
+  <li class="active">{{ thread }}</li>
+</ol>
+{% endblock %}

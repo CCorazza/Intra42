@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}{{ data.cn }} - Profile{% endblock %}
+{% block extra_css %}
+img {
+	border-radius: 9%;
+	max-width: 200px;
+}
+
+table {
+	margin: auto;
+	margin-top: 10%;
+}
+
+.display {
+	min-width: 300px;
+	margin: 10% 1%;
+}
+{% endblock %}
+{% block content %}
+  {% if data %}
+  <table>
+    <td class="display">
+      <img src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
+	   onerror="this.src='https://Project2.42.fr/static7029/img/nopicture-profilview.png';"/>
+    </td>
+    <td class="display">
+      <p><b>{{ data.cn }}</b></p>
+      <p>Login: {{ data.uid }}</p>
+      {% if data.location == 'Hors-Ligne' %}
+        <p>Place: <span style="color: red">{{ data.location }}</span></p>
+      {% else %}
+	<p>Place: <span style="color: green">{{ data.location }}</span></p>
+      {% endif %}
+      <p>Uid / Gid: {{ data.uidNumber }} / {{ data.gidNumber }}</p>
+      <p>Phone Number: {{ data.mobile_phone }}</p>
+      <p>Mail : {{ data.uid }}@student.42.fr<r/p>
+    </td>
+  </table>
+  {% else %}
+    <div class="display">
+      <p>This user does not exist. :(</p>
+    </div>
+  {% endif %}
+{% endblock %}

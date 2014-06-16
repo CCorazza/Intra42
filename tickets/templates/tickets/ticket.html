@@ -1,0 +1,52 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+
+{% block title %}Such ticket{% endblock %}
+
+{% block content %}
+<h1>{% trans "Ticket:" %} {{ ticket.title }}</h1>
+<br>
+<p>{% trans "Currently assigned to" %} {{ ticket.admin.username }}</p>
+<br>
+<div class="list-group">
+{% for message in messages %}
+  <div class="list-group-item center">
+    <p class="message">
+      {{ message.content }}<br>
+      <span class="author">{{ message.author }} &mdash; {{ message.pub_date }}</span>
+    </p>
+  </div>
+  <div class="xs-spacing"></div>
+{% endfor %}
+</div>
+<div class="s-spacing"></div>
+<div>
+  <form action="{% url 'tickets:change_status' %}" method="POST" id="close_form">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+    <input type="checkbox" name="closed" value="on" {% if ticket.closed %}checked="yes"{% endif %} onchange="this.form.submit();"> {% trans "Ticket closed" %}
+  </form>
+</div>
+{% if not ticket.closed %}
+  <div class="reply_container">
+    <fieldset>
+    <legend>{% trans "Reply:" %}</legend>
+      <form action="{% url 'tickets:new_message' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+        <textarea rows="10" cols="50" name="content" placeholder="{% trans 'Reply to this ticket...' %}"></textarea>
+        <br>
+        <button type="submit" class="btn btn-default">{% trans "send" %}</button>
+      </form>
+    </fieldset>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+  <li><a href="{% url 'tickets:index' %}">{% trans "Tickets" %}</a></li>
+  <li class="active">{{ ticket }}</li>
+</ol>
+{% endblock %}

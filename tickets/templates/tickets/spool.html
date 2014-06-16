@@ -1,0 +1,65 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+
+{% block title %}Such spool{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>{% trans "Spool" %}</h1>
+  {% if tickets %}
+    <div class="s-spacing"></div>
+    <div class="list-group">
+    {% for ticket in tickets %}
+      <div class="list-group-item center-large {% if ticket.closed %}list-group-item-success{% else %}list-group-item-info{% endif %}">
+        <div class="btn-group btn-group-justified">
+          <div class="btn-group">
+            <a href="{% url 'tickets:ticket' ticket.id %}" class="btn btn-default btn-xlarge {% if ticket.closed %}btn-success{% else %}btn-info{% endif %}">
+              {{ ticket }} ({{ ticket.author }})
+            </a>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-default btn-xlarge dropdown-toggle btn-warning" data-toggle="dropdown">
+            <form action="{% url 'tickets:assign_ticket' %}" method="post" id="assign_form">{% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}">
+              <input name="ticket_id" type="hidden" value="{{ ticket.id }}">
+              <input name="admin_id" type="hidden" id="admin_field">
+              <span class="fa fa-users"> {% trans "Assign to" %}</span>
+              <span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu">
+              {% for admin in admins %}
+                {% if admin.id != user.id %}
+                  <li>
+                    <a href="#" onclick="$('#admin_field').val('{{ admin.id }}');$('#assign_form').submit();">
+                      <span class="fa fa-user"> {{ admin }}</span>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              </ul>
+            </form>
+          </div>
+        </div>
+        <div class="btn-group">
+          <form style="display: inline;" action="{% url 'tickets:change_status' %}" method="POST">{% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.path }}">
+            <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+            <input type="checkbox" name="closed" value="on" {% if ticket.closed %}checked="yes"{% endif %} onchange="this.form.submit();" class=""> {% trans "closed" %}
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  {% else %}
+    <p>{% trans "You currently have no tickets assigned" %}</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+  <li><a href="{% url 'tickets:index' %}">{% trans "Tickets" %}</a></li>
+  <li class="active">{% trans "Spool" %}</li>
+</ol>
+{% endblock %}

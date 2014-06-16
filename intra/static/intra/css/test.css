@@ -1,0 +1,132 @@
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: rgb( 4, 174, 218);
+	text-decoration: none;
+}
+
+/*
+**
+/* Input Form Transformations
+**
+*/
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; /* remove the search and cancel icon */
+}
+
+/* search input field */
+input[type=search] {
+	background: #FAFAFA url(https://cdn1.iconfinder.com/data/icons/de-munich-icon-pack/32x32/search.png) no-repeat 15px center;
+	border: solid 1px #CCC;
+	padding: 9px 10px 9px 54px;
+	width: 55px;
+	border-radius: 10em;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 150px;
+	background-color: #FFF;
+	border-color: #6DCFF6;
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+/*
+**
+** IDs for principal divs in body
+**
+*/
+
+#container {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	background-color: #FFF;
+	top: 42px;
+	left: 15%;
+	width: 88%;
+	height: 95%;
+}
+
+#nav {
+	background-color: rgb(42, 42, 42);
+	color: #DEDEDE;
+	font-variant: small-caps;
+	position: absolute;
+	height: 100%;
+	width: 15%;
+	display: list-item;
+	text-decoration: none;
+}
+
+#nav table {
+	padding: 6px;
+	width: 15%;
+	margin: 3em 0;
+	color: red;
+}
+
+#search {
+	background-color: #E8FAFF;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 85%;
+	height: 42px;
+	text-align: right;
+	padding-right: 1em;
+}
+
+#alerts {
+	display: hidden;
+}
+
+/*
+**
+** Display Classes
+**
+*/
+
+/* Icons */
+.icn {
+	height: 27px;
+	margin: 2px;
+}
+
+.icn.menu {
+	height: 4em;
+	margin: 2px;
+}
+
+#logout {
+	color: black;
+}
+
+#logout img {
+	height: 36px;
+}
+
+/* Messages */
+
+.alert_msg {
+	text-align: justify;
+	color: #52B2DE;
+	margin: 2px;
+	padding-left: 4,2em;
+	border: 1px solid #fff;
+}

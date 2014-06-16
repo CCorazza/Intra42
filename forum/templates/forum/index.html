@@ -1,0 +1,31 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>{% trans "Forum" %}</h1>
+  {% if not categories %}
+    <p>No Categories</p>
+  {% else %}
+    <div class="s-spacing"></div>
+    <h3>{% trans "Categories" %}</h3>
+    <div class="xs-spacing"></div>
+    <div class="list-group">
+    {% for category in categories %}
+      <a class="forum_category list-group-item center" href="{% url 'forum:category' category.id %}">
+        {{ category }}
+      </a>
+    {% endfor %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+  <li class="active">{% trans "Forum" %}</li>
+</ol>
+{% endblock %}
