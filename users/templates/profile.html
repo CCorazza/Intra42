@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'intra/base.html' %}
 {% block title %}{{ data.cn }} - Profile{% endblock %}
 {% block extra_css %}
 img {
@@ -21,7 +21,7 @@ table {
   <table>
     <td class="display">
       <img src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
-	   onerror="this.src='https://Project2.42.fr/static7029/img/nopicture-profilview.png';"/>
+	   onerror="this.src='https://intra.42.fr/static7029/img/nopicture-profilview.png';"/>
     </td>
     <td class="display">
       <p><b>{{ data.cn }}</b></p>
