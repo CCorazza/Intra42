@@ -5,6 +5,7 @@ from django.utils.translation import get_language
 
 import auth.urls
 import forum.urls
+import modules.urls
 import tickets.urls
 import users.urls
 
@@ -25,6 +26,8 @@ urlpatterns = patterns('',
     url(r'^tickets/', include(tickets.urls, namespace='tickets')),
     # LDAP
     url(r'^users/', include(users.urls, namespace='users')),
+    # Modules
+    url(r'^modules/', include(modules.urls, namespace='modules')),
     # Internationalization
     url(r'^i18n/', include(i18n))
 )

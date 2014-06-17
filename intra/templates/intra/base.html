@@ -12,13 +12,14 @@
 		<link href="{% static 'intra/css/style.css' %}" rel="stylesheet" madia="all">
 		<link href="{% static 'intra/css/base.css' %}" rel="stylesheet" madia="all">
 		<link href="{% static 'intra/css/forum.css' %}" rel="stylesheet" madia="all">
+  		<link href="{% static 'intra/css/modules.css' %}" rel="stylesheet" media="all">
+		{% block extracss %}
+		{% endblock %}
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="{% static 'intra/js/bootstrap.min.js' %}"></script>
+		{% block extra_script %}
 		{% endblock %}
-		<style>
-		{% block extra_css %}
 		{% endblock %}
-		</style>
 	</head>
 	<body>
 		<div id="search">
@@ -44,7 +45,7 @@
 					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__touch.png">
 					LDAP 
 				</a><br /></tr>
-				<tr><a href=#>
+				<tr><a href="/modules">
 					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__tasks.png">
 					 Modules
 				</a><br /></tr>

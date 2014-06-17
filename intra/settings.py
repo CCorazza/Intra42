@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'auth',
     'forum',
+    'modules',
     'tickets',
     'users',
 )
@@ -52,6 +53,7 @@ LOCALE_PATHS = (
 # Templates
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'intra', 'templates'),
+    os.path.join(BASE_DIR, 'modules', 'templates'),
 )
 
 PYBB_TEMPLATE = 'intra/base.html'

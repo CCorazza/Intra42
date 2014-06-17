@@ -1,26 +1,30 @@
 {% extends 'intra/base.html' %}
+
 {% block title %}{{ data.cn }} - Profile{% endblock %}
+
 {% block extra_css %}
-img {
-	border-radius: 9%;
-	max-width: 200px;
-}
+<style>
+  .profile_pic {
+  	border-radius: 9%;
+  	max-width: 200px;
+  }
 
-table {
-	margin: auto;
-	margin-top: 10%;
-}
+  #table_profile {
+  	margin: auto;
+  	margin-top: 10%;
+  }
 
-.display {
-	min-width: 300px;
-	margin: 10% 1%;
-}
+  .display {
+  	min-width: 300px;
+  	margin: 10% 1%;
+  }
+</style>
 {% endblock %}
 {% block content %}
   {% if data %}
-  <table>
+  <table id="table_profile">
     <td class="display">
-      <img src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
+      <img class="profile_pic" src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
 	   onerror="this.src='https://intra.42.fr/static7029/img/nopicture-profilview.png';"/>
     </td>
     <td class="display">
@@ -41,4 +45,13 @@ table {
       <p>This user does not exist. :(</p>
     </div>
   {% endif %}
+{% endblock %}
+
+
+{% block breadcrumbs %}
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li class="active">{{ data.uid }}</li>
+  </ol>
 {% endblock %}

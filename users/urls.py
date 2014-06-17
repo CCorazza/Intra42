@@ -4,5 +4,5 @@ from users import views
 
 urlpatterns = patterns('',
     url(r'^$', views.users, name='users'),
-	url(r'^profile/(?P<user>[^/]*)[/]?$', views.profile, name='profile'),
+	url(r'^(?P<user>[^/]*)[/]?$', views.profile, name='profile'),
 )
