@@ -10,11 +10,12 @@ class User(object):
 
   def __init__(self, username, password):
     'Constructeur: User(username, password)'
-    self.my_ldap = None
+    self.db = None
+    self.ldap = None
+    self.infos = {}
     self.connected = False
     self.username = username
     self.password = password
-    self.infos = {}
     self.login()
     if (self.connected):
       self.infos = self.get_info()
@@ -23,21 +24,22 @@ class User(object):
 
   def __del__(self):
     'Destructeur'
-    self.save_location()
     self.logout()
 
   def login(self):
     'Se connecte au ldap pour verifier les identifiants'
-    self.my_ldap = Ldap(self.username, self.password)
-    if (self.my_ldap.connect()):
+    self.ldap = Ldap(self.username, self.password)
+    if (self.ldap.connect()):
       self.connected = True
+      if (not Student.objects.filter(uid=self.username)):
+        Student(uid=self.username, privilege='etudiant').save()
 
   def logout(self):
     'Se deconnecte'
     self.connected = False
-    if (self.my_ldap is not None):
-      self.my_ldap.disconnect()
-      self.my_ldap = None
+    if (self.ldap is not None):
+      self.ldap.disconnect()
+      self.ldap = None
 
   def save_location(self):
     if (self.connected):
@@ -55,7 +57,7 @@ class User(object):
   def get_info(self, uid=None):
     'Retourne les infos du user (ldap) sous forme de dictionnaire: User.get_info(uid)'
     if (self.connected):
-      return self.my_ldap.get_by_uid(uid)
+      return self.ldap.get_by_uid(uid)
     return {}
 
   def get_location(self, uid=None):
@@ -72,14 +74,14 @@ class User(object):
     "Retourne la liste de tous les utilisateurs"
     if (not self.connected):
       return []
-    data = self.my_ldap.search(['uid', 'first-name', 'last-name'])
+    data = self.ldap.search(['uid', 'first-name', 'last-name'])
     uid_cmp = lambda x: x['uid']
     return sorted(data, key=uid_cmp)
 
   def dump_ldap(self):
     "Dump le ldap dans la base de donnees"
     if (self.connected):
-      data = self.my_ldap.search()
+      data = self.ldap.search()
       for user in data:
         if (not Student.objects.filter(uid=user['uid'])):
           Student(uid=user['uid'], privilege='etudiant').save()

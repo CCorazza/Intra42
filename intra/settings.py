@@ -78,6 +78,8 @@ STATICFILES_DIRS = (
 
 SECRET_KEY = '%)c%ub^d&x0n(s0+)opml4=gjyy@bu2ukcenskc#4pg#n^xa^0'
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 ALLOWED_HOSTS = []
 
 ADMINS = (
@@ -100,7 +102,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
