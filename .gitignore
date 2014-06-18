@@ -1,5 +1,6 @@
 *.[oa]
 *.pdf
 *~
+*.pyc
 *.sw[mnop]
 /Not_To_Push
