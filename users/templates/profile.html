@@ -31,13 +31,14 @@
       <p><b>{{ data.cn }}</b></p>
       <p>Login: {{ data.uid }}</p>
       {% if data.location == 'Hors-Ligne' %}
-        <p>Place: <span style="color: red">{{ data.location }}</span></p>
+        <p>Location: <span style="color: red">{{ data.location }}</span></p>
       {% else %}
-	<p>Place: <span style="color: green">{{ data.location }}</span></p>
+	<p>Location: <span style="color: green">{{ data.location }}</span></p>
       {% endif %}
       <p>Uid / Gid: {{ data.uidNumber }} / {{ data.gidNumber }}</p>
       <p>Phone Number: {{ data.mobile_phone }}</p>
-      <p>Mail : {{ data.uid }}@student.42.fr<r/p>
+      <p>Mail: {{ data.uid }}@student.42.fr<r/p>
+      <p>Latest activity: {{ data.latest|default:'Unknown' }}</p>
     </td>
   </table>
   {% else %}

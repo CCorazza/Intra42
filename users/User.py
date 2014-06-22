@@ -1,3 +1,4 @@
+import Db
 import json
 import urllib
 from Ldap import *
@@ -43,14 +44,12 @@ class User(object):
 
   def save_location(self):
     if (self.connected):
-      student = Student.objects.filter(uid=self.infos['uid'])
-      if (student):
-        student[0].latest_location = self.infos['location']
-        student[0].save()
+      Db.update(self.username,
+                {'latest_location': self.infos['location'], 'latest_activity': 1})
 
   def get(self, field):
     'Retourne un champ precis sur le user actuel'
-    if (self.infos.has_key(field)):
+    if (field in self.infos):
       return self.infos[field]
     return ''
 
