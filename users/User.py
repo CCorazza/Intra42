@@ -3,6 +3,7 @@ import json
 import urllib
 from Ldap import *
 from models import Student
+from django.contrib.auth.models import User as SU
 
 class User(object):
   """Gestion des utilisateurs"""
@@ -19,7 +20,6 @@ class User(object):
     self.password = password
     self.login()
     if (self.connected):
-      self.infos = self.get_info()
       self.infos['location'] = self.get_location()
       self.save_location()
 
@@ -32,8 +32,14 @@ class User(object):
     self.ldap = Ldap(self.username, self.password)
     if (self.ldap.connect()):
       self.connected = True
+      self.infos = self.get_info()
       if (not Student.objects.filter(uid=self.username)):
         Student(uid=self.username, privilege='etudiant').save()
+      if (not SU.objects.filter(username=self.username)):
+        user = SU.objects.create_user(self.username, '%s@student.42.fr' % self.username, self.password)
+        user.first_name = self.infos['first_name']
+        user.last_name = self.infos['last_name']
+        user.save()
 
   def logout(self):
     'Se deconnecte'
@@ -84,5 +90,11 @@ class User(object):
       for user in data:
         if (not Student.objects.filter(uid=user['uid'])):
           Student(uid=user['uid'], privilege='etudiant').save()
+        if (not SU.objects.filter(username=user['uid'])):
+          u = SU.objects.create_user(user['uid'], '%s@student.42.fr' % user['uid'], 'NULL')
+          print str(u)
+          u.first_name = user['first_name']
+          u.last_name = user['last_name']
+          u.save()
       return True
     return False

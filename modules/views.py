@@ -8,7 +8,12 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 
 def list_modules(request):
-  return render(request, 'modules/index.html', {'sess' : request.session})
+  sess = request.session
+  if ('connected' in request.session):
+    modules = Module.objects.all()
+    return render(request, 'modules/index.html', locals())
+  else:
+    return redirect('/login')
 
 def module_descr(request, module):
   if ('connected' in request.session):
@@ -26,6 +31,7 @@ def module_descr(request, module):
       activities = []
       activity = Activity.objects.filter(belongs=module.uid)
       for i in activity:
+        j['uid'] = i.uid
         j['name'] = i.name
         j['registered'] = False
         if (RegisteredActivity.objects.filter(username=sess['username'], activity=i.uid)):
