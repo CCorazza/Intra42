@@ -34,6 +34,10 @@ def login_view(request):
 def logout_view(request):
     if ('connected' in request.session):
         del request.session['connected']
+        del request.session['username']
+        del request.session['password']
+        del request.session['trombi']
+        del request.session['infos']
     return http.HttpResponseRedirect('/')
 
 #def register_view(request):
