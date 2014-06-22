@@ -1,4 +1,30 @@
-html 
-{
-color: red;
+h1 {
+	text-align: center;
+	font-variant: small-caps;
+}
+
+.tmp {
+	color: red;
+	font-size: 0.8em;
+	font-style: oblique;
+	display: inline;
+}
+
+.variable {
+	color: #696969;
+	font-size: 1em;
+	font-style: bold;
+	display: inline;
+}
+
+/*
+**
+** Various Paragraphs Styles
+**
+*/
+
+#time {
+	color: #979797;
+	text-align: center;
+	font-size: 0.9em;
 }

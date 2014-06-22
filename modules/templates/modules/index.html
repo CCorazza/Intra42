@@ -9,7 +9,16 @@
 {% endblock %}
 
 {% block content %}
-<p> Plop </p>
+	<h1> Module: <span class="tmp">Nom du module</span></h1>
+	<p id="time">
+		From <span class="tmp"> Date_Debut </span> to <span class="tmp"> Date_FIN </span>.
+		<br />
+		You have <span class="tmp">{.{variable|timeuntil:othervariable}}</span> days left.
+		<!-- Django offre des filtres divers et varies, regarde
+			http://www.webforefront.com/django/usebuiltindjangofilters.html 
+			avec un ctrl+f sur timeuntil :)
+			-->
+	</p>
 {% endblock %}
 
 {% block breadcrumbs %}

@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url, i18n
 from django.shortcuts import render
 from django.contrib import admin
 from django.utils.translation import get_language
+from intra import views
 
 import auth.urls
 import forum.urls
@@ -15,7 +16,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Home page
-    url(r'^$', lambda request : render(request, HOME_PAGE), name='home'),
+    url(r'^$', views.home, name="home"),
     # Admin panel
     url(r'^admin/', include(admin.site.urls)),
     # Account management

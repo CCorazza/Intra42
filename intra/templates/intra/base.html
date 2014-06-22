@@ -23,22 +23,24 @@
 	</head>
 	<body>
 		<div id="search">
-			<span>
+			<p id="connect">
 			{% if sess and sess.connected %}
-			Bienvenue {{ sess.infos.cn }}
+			Welcome <a href="/users/{{sess.infos.uid}}">{{ sess.infos.cn }}</a>
 			{% else %}
-			Connectez-vous
+			Please, <a href="/login">Log in</a>
 			{% endif %}
-			</span>
-			<form id="search">
-				<input type="search" placeholder="Recherche">
-			</form>
 		{% block top %}
+			{% if sess and sess.connected %}
 			<span>
-				<a href="/logout">
-				<img id="logout" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__expand.png">
+				<a href="/login/logout">
+				<img class="icn" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__expand.png">
 				Log Out</a>
 			</span>
+			{% endif %}
+			<form id="search">
+				<input type="search" placeholder="Search">
+			</form>
+			</p>
 		{% endblock %}
 		</div>
 		<div id="nav">
@@ -48,6 +50,7 @@
 					 Home
 				</a><br /></tr>
 			{% block navigation %}
+			{% if sess and sess.connected %}
 				<tr><a href="/users">
 					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__touch.png">
 					LDAP 
@@ -64,7 +67,8 @@
 					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__msg.png">
 					 Tickets
 				</a><br /></tr>
-				<tr><a href=#>
+				{% endif %}
+				<tr><a href=/admin>
 					<img class="icn menu" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__sett-big.png">
 					 Administration
 				</a><br /></tr>
@@ -72,12 +76,6 @@
 			</table>
 		</div>
 		<div id="container">
-		<div id="alerts">
-				<p class="alert_msg">
-					<img class="icn" src="https://cdn1.iconfinder.com/data/icons/de-munich-icon-pack/32x32/freelance.png">
-					<span>Message d'exemple</span>
-				</p>
-			</div>
 		{% block content %}
 			<p> There is no Spoon </p>
 		{% endblock %}
