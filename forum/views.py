@@ -12,7 +12,8 @@ from forum.models import Category, Thread, Message, Comment
 def index_view(request):
     categories = Category.objects.filter(parent_category__isnull=True)
     return render(request, 'forum/index.html', {
-        'categories' : categories
+        'categories' : categories,
+        'sess': request.session
     })
 
 def category_view(request, pk):
@@ -23,7 +24,8 @@ def category_view(request, pk):
     return render(request, 'forum/categories.html', {
         'category'       : category,
         'sub_categories' : sub_categories,
-        'threads'        : threads
+        'threads'        : threads,
+        'sess'		 : request.session
     })
 
 def thread_view(request, pk):
@@ -39,7 +41,8 @@ def thread_view(request, pk):
         ))
     return render(request, 'forum/thread.html', {
         'thread'   : thread,
-        'posts'    : posts
+        'posts'    : posts,
+        'sess'	   : request.session
     })
 
 @login_required

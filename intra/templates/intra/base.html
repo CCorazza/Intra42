@@ -23,6 +23,13 @@
 	</head>
 	<body>
 		<div id="search">
+			<span>
+			{% if sess and sess.connected %}
+			Bienvenue {{ sess.infos.cn }}
+			{% else %}
+			Connectez-vous
+			{% endif %}
+			</span>
 			<form id="search">
 				<input type="search" placeholder="Recherche">
 			</form>

@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 
 def users(request):
   if ('connected' in request.session):
-    return render(request, "users.html", {'datas': request.session['trombi']})
+    return render(request, "users.html", {'datas': request.session['trombi'], 'sess': request.session})
   else:
     return redirect('/login')
 
@@ -16,6 +16,6 @@ def profile(request, user):
       data = u.get_info(user)
       if (data != {}):
         data['location'] = u.get_location(user)
-    return render(request, "profile.html", {'data': data})
+    return render(request, "profile.html", {'data': data, 'sess' : request.session})
   else:
     return redirect('/login')

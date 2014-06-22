@@ -25,6 +25,7 @@ def login_view(request):
                 request.session['username'] = username
                 request.session['password'] = password
                 request.session['trombi'] = u.get_trombi()
+                request.session['infos'] = u.infos
                 return http.HttpResponseRedirect('/')
     else:
         form = LoginForm()
