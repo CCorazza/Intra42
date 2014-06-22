@@ -44,11 +44,11 @@ input[type=search]:focus {
 	position: absolute;
 	padding: 0;
 	margin: 0;
+	margin-top: 30px;
 	background-color: #FFF;
 	top: 42px;
 	left: 15%;
-	width: 88%;
-	height: 95%;
+	width: 85%;
 }
 
 #nav {
@@ -109,14 +109,39 @@ input[type=search]:focus {
 	height: 36px;
 }
 
-/* Messages */
+#log {
+	font-size: 0.8em;
+}
+ #icnlog {
+ 	height: 21px;
+ }
 
-.alert_msg {
+/* Connect */
+
+#connect {
+	position: absolute;
+	top: 9px;
+	left: 21%;
+	z-index: 3;
+	overflow: visible;
 	text-align: justify;
 	color: #52B2DE;
-	margin: 2px;
 	padding-left: 4,2em;
-	border: 1px solid #fff;
+	display: inline;
+	height: 42px;
+}
+
+.button {
+	position: relative;
+	background-color: #52B2DE;
+	border: none;
+	color: #fff;
+	font-variant: small-caps;
+	font-size: 1.2em;
+}
+
+.buttonlog {
+	left: 48%;
 }
 
 /* BreadCrumb */
