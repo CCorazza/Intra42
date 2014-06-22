@@ -1,0 +1,44 @@
+{% extends "intra/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}{{module.name}}{% endblock %}
+
+{% block extra_css %}
+  <link href="{% static 'intra/css/modules.css' %}" rel="stylesheet" media="all">
+{% endblock %}
+
+{% block content %}
+	<h1> Module: <span class="tmp">{{ module.name }}</span></h1>
+	<p id="time">
+		From <span class="tmp">{{ module.begin }}</span> to <span class="tmp">{{ module.end }}</span>.
+	</p>
+	<br />
+		<div id="registered">
+			<img src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__android.png"><br />
+			<span class="tmp">{{ registered_nb }}</span> students are registered.<br /><br />
+			{% if not registered %}
+			<button class="button" type="submit" class="btn btn-default">Register to This Module</button>
+			{% endif %}
+		</div>
+		<div id="describe">
+			<p> {{ module.description }}
+			</p>
+		</div>
+	{% for activity in activities %}
+	<p class=
+    		  {% if forloop.counter0|divisibleby:2 %}"categories1"
+			  {% else %}"categories2"
+			  {% endif %}>
+		<a class="cat" href="">{{ activity.name }}</a>
+		{% if not activity.registered %}<button class="buttonreg"> Register </button> {% endif %}
+	{% endfor %}
+	</p>
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ol class="breadcrumb">
+    <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+    <li class="active">{% trans "Modules" %}</li>
+  </ol>
+{% endblock %}

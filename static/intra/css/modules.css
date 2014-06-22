@@ -29,69 +29,40 @@ h1 {
 	font-size: 0.9em;
 }
 
-#overall {
-	position: relative;
-	border: 1px solid black;
-	margin: 1.5%;
-	width: 90%;
-	display: inline-block;
-}
-
-#info {
-	position: absolute;
-	border: 1px solid black;
-	margin: 0;
-	right: 0;
-	display: inline-block;
-	height: 100%;
-	width: 69%;
-}
-
-#students {
-	border: 1px solid black;
-	position: absolute;
-	display: inline-block;
-	padding: 2%;
+#registered {
 	text-align: center;
-	overflow: hidden;
+	margin: 6% auto;
+	overflow: auto; 
 }
 
-#students.button {
-	left: 114px;
+#describe {
+	text-align: center;
+	margin: 6% auto;
+	overflow: auto;
+	font-style: oblique; 
+	color: #aaa;
 }
 
-.navbar {
-	position: relative;
-	height: 13%;
+.categories1 {
+	background-color: #fff;
+	width: 90%;
+	text-align: center;
 	margin: auto;
-	padding: 2px 2em;
-	top: 0;
-	border: 3px solid white;
-	border-collapse: collapse;
-	background-color: #9DCADE;
 }
 
-.navbar a:link {
+.categories2 {
+	width: 90%;
+	text-align: center;
+	background-color: #DEDEDE;
+	margin: auto;
+}
+
+.buttonreg {
+	position: relative;
+	background-color: #52B2DE;
+	border: none;
 	color: #fff;
 	font-variant: small-caps;
-	text-align: right;
-	font-size: 1.2em;
+	font-size: 0.9em;
+	margin: 0.2em 12px;
 }
-.content {
-	position: relative;
-	height: 87%;
-	bottom: 0;
-	background-color: #DEDEDE;
-}
-
-/*
-**
-** Display of tabs
-**
-*/
-
-#grp {display: none;}
-#grp:target {display: block;}
-
-#files {display: none;}
-#files:target {display: block;}
