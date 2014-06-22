@@ -30,7 +30,7 @@
     		  {% if forloop.counter0|divisibleby:2 %}"categories1"
 			  {% else %}"categories2"
 			  {% endif %}>
-		<a class="cat" href="{{activity.url}}">{{ activity.name }}</a>
+		<a class="cat" href="">{{ activity.name }}</a>
 		{% if not activity.registered %}<button class="buttonreg"> Register </button> {% endif %}
 	{% endfor %}
 	</p>

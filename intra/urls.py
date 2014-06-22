@@ -7,6 +7,7 @@ from intra import views
 import activities.urls
 import auth.urls
 import forum.urls
+import learning.urls
 import modules.urls
 import tickets.urls
 import users.urls
@@ -30,8 +31,10 @@ urlpatterns = patterns('',
     url(r'^users/', include(users.urls, namespace='users')),
     # Modules
     url(r'^modules/', include(modules.urls, namespace='modules')),
-    # Account management
+    # Activities
     url(r'^activities/', include(activities.urls, namespace='activities')),
+    # E-Learning
+    url(r'^learning/', include(learning.urls, namespace='learning')),
     # Internationalization
     url(r'^i18n/', include(i18n))
 )

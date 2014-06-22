@@ -13,7 +13,7 @@
 	<br />
 		<div id="registered">
 			<img src="https://cdn1.iconfinder.com/data/icons/brain-games/128/Brain-Games-grey.png"><br /><br />
-			<p>Those are not the modules you're looking for.</p><br />
+			<p>Those are not the Courses you're looking for.</p><br />
 		</div>
 	{% for module in modules %}
 	<p class=
@@ -22,7 +22,6 @@
 			  {% endif %}>
 		<a class="cat" href="{{module.url}}">{{ module.name }}</a>
 		Starts on {{module.begin}} and ends on {{module.end}}.
-		{% if not module.registered %}<button class="buttonreg"> Register </button> {% endif %}
 	</p>
 	{% endfor %}
 {% endblock %}

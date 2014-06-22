@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     'activities',
     'auth',
     'forum',
+    'learning',
     'modules',
     'tickets',
     'users',
