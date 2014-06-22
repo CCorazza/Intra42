@@ -3,6 +3,9 @@ h1 {
 	font-variant: small-caps;
 }
 
+h2{
+	text-align: center;
+}
 .tmp {
 	color: red;
 	font-size: 0.8em;

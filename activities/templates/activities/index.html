@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block title %}Activity - {% endblock %}
+{% block title %}Activity - {{activity}}{% endblock %}
 
 {% block extra_css %}
   <link href="{% static 'intra/css/modules.css' %}" rel="stylesheet" media="all">
@@ -11,6 +11,7 @@
 
 {% block content %}
 	<h1> Module: <span class="tmp">Nom du module</span></h1>
+		<h2> Activity: <span class="tmp">Nom du project</span></h2>
 	<p id="time">
 		From <span class="tmp"> Date_Debut </span> to <span class="tmp"> Date_FIN </span>.
 		<br />
@@ -18,7 +19,7 @@
 		<!-- Django offre des filtres divers et varies, regarde
 			http://www.webforefront.com/django/usebuiltindjangofilters.html 
 			avec un ctrl+f sur timeuntil :)
-			-->
+		-->
 	</p>
 	<br />
 	<table id="overall">

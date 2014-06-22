@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block title %}Modules{% endblock %}
+{% block title %}{{module.name}}{% endblock %}
 
 {% block extra_css %}
   <link href="{% static 'intra/css/modules.css' %}" rel="stylesheet" media="all">
@@ -14,9 +14,27 @@
 		From <span class="tmp"> Date_Debut </span> to <span class="tmp"> Date_FIN </span>.
 	</p>
 	<br />
-	<table id="overall">
-	</table>
-	
+		<div id="registered">
+			<img src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__android.png"><br />
+			<span class="tmp">nb_registered</span> students are registered.<br /><br />
+			{% if not module.registered %}
+			<button class="button" type="submit" class="btn btn-default">Register to This Module</button>
+			{% endif %}
+		</div>
+		<div id="describe">
+			<p> {{ module.description }}
+				En Attendant Godot.
+			</p>
+		</div>
+	{% for activity in activities %}
+	<p class=
+    		  {% if forloop.counter0|divisibleby:2 %}"categories1"
+			  {% else %}"categories2"
+			  {% endif %}>
+		<a class="cat" href="">{{ activity }}</a>
+		{% if not activity.registered %}<button class="buttonreg"> Register </button> {% endif %}
+	{% endfor %}
+	</p>
 {% endblock %}
 
 {% block breadcrumbs %}
