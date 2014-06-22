@@ -15,6 +15,15 @@ def list_modules(request):
   else:
     return redirect('/login')
 
+def module_register(request, module, user):
+  sess = request.session
+  if ('connected' in request.session):
+    if (not RegisteredModule.objects.filter(username=sess['username'], module=module)):
+      RegisteredModule(username=sess['username'], module=module).save()
+    return render(request, 'modules/index.html', locals())
+  else:
+    return redirect('/login')
+
 def module_descr(request, module):
   if ('connected' in request.session):
     sess = request.session

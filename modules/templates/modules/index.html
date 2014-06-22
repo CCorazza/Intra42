@@ -22,7 +22,10 @@
 			  {% endif %}>
 		<a class="cat" href="/modules/{{module.uid}}">{{ module.name }}</a>
 		Starts on {{ module.begin }} and ends on {{ module.end }}.
-		{% if not module.registered %}<button class="buttonreg"> Register </button> {% endif %}
+		{% if not module.registered %}
+		<a href="/modules/register/{{ module.uid }}/{{ sess.infos.uid }}">
+		<button class="buttonreg"> Register </button></a>
+		{% endif %}
 	</p>
 	{% endfor %}
 {% endblock %}
