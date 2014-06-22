@@ -93,8 +93,8 @@ class User(object):
         if (not SU.objects.filter(username=user['uid'])):
           u = SU.objects.create_user(user['uid'], '%s@student.42.fr' % user['uid'], 'NULL')
           print str(u)
-#          u.first_name = user['first_name']
-#          u.last_name = user['last_name']
-#          u.save()
+          u.first_name = user['first_name'][:30]
+          u.last_name = user['last_name'][:30]
+          u.save()
       return True
     return False

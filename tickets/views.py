@@ -16,7 +16,7 @@ def index_view(request):
     tickets = Ticket.objects.filter(author__id=request.user.id)
     return render(request, 'tickets/index.html', {
         'tickets' : tickets,
-		'sess'    : request.session
+        'sess'    : request.session
     })
 
 @login_required(login_url=reverse_lazy('auth:login'))
@@ -29,7 +29,7 @@ def ticket_view(request, pk):
     return render(request, 'tickets/ticket.html', {
         'ticket'   : ticket,
         'messages' : messages,
-		'sess'    : request.session
+        'sess'    : request.session
     })
 
 @staff_member_required
@@ -39,7 +39,7 @@ def spool_view(request):
     return render(request, 'tickets/spool.html', {
         'tickets' : tickets,
         'admins'  : admins,
-		'sess'    : request.session
+        'sess'    : request.session
     })
 
 @login_required
