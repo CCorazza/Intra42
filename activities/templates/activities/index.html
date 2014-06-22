@@ -31,15 +31,27 @@
 			<button class="button" type="submit" class="btn btn-default">Register</button>
 			{% endif %}
 		</td>
-		<td id="info">
-			<table>
+		<td>
+			<table id="info">
 			<tr>
 				<td class="navbar"><a href="#grp">Group</a></td>
 				<td class="navbar"><a href="#files">Files</a></td>
+				<td class="navbar"><a href="#learn">E-Learning</a></td>
 			</tr>
-			<tr class="content">
-				<td id=grp> PLOPI</td>
-				<td id=files> PLOPA</td>
+			<tr colspan="3">
+				<td id=grp colspan="3">
+					<h4>Handle your group : </h4>
+					<p>Git Repository: <input type="text" placeholder="{{activity.repo}}"></input></p>
+				</td>
+				<td id=files colspan="3">
+					{% for file in files %}
+					<a target="_blank" href="/module/file/gros-projet.pdf">{{file.name}}</a>	
+					{% endfor %}
+					path_to_the_file	 
+				</td>
+				<td id=learn colspan="3">
+					I want to see the<a href="/e-learning/{{activity}}"><button class="button">Lecture</button></a>.
+				</td>
 			</tr>
 			</table>
 		</td>

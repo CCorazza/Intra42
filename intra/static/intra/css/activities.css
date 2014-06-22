@@ -34,7 +34,6 @@ h2{
 
 #overall {
 	position: relative;
-	border: 1px solid black;
 	margin: 1.5%;
 	width: 90%;
 	display: inline-block;
@@ -42,7 +41,6 @@ h2{
 
 #info {
 	position: absolute;
-	border: 1px solid black;
 	margin: 0;
 	right: 0;
 	display: inline-block;
@@ -51,7 +49,6 @@ h2{
 }
 
 #students {
-	border: 1px solid black;
 	position: absolute;
 	display: inline-block;
 	padding: 2%;
@@ -66,6 +63,7 @@ h2{
 .navbar {
 	position: relative;
 	height: 13%;
+	width: 72px;
 	margin: auto;
 	padding: 2px 2em;
 	top: 0;
@@ -80,12 +78,7 @@ h2{
 	text-align: right;
 	font-size: 1.2em;
 }
-.content {
-	position: relative;
-	height: 87%;
-	bottom: 0;
-	background-color: #DEDEDE;
-}
+
 
 /*
 **
@@ -93,8 +86,22 @@ h2{
 **
 */
 
-#grp {display: none;}
+#grp {
+	display: none;
+	padding: 3%;
+}
 #grp:target {display: block;}
+input[type=text] {
+	width: 420px;
+	background-color: #FFF;
+	border-color: #6DCFF6;
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
 
-#files {display: none;}
+#files {display: none;
+	padding: 3%;}
 #files:target {display: block;}
+
+#learn {display: none;
+	padding: 3%;}
+#learn:target {display: block;}
