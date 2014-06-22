@@ -31,9 +31,9 @@
 			{% endif %}
 		{% block top %}
 			{% if sess and sess.connected %}
-			<span>
+			<span id="log">
 				<a href="/login/logout">
-				<img class="icn" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__expand.png">
+				<img id="icnlog" src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__expand.png">
 				Log Out</a>
 			</span>
 			{% endif %}

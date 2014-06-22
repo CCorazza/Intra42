@@ -19,6 +19,31 @@
 			avec un ctrl+f sur timeuntil :)
 			-->
 	</p>
+	<br />
+	<table id="overall">
+	<tr>
+		<td id="students">
+			<img src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__android.png"><br />
+			<span class="tmp">nb_registered</span> students are registered.<br /><br />
+			{% if not module.registered %}
+			<button class="button" type="submit" class="btn btn-default">Register</button>
+			{% endif %}
+		</td>
+		<td id="info">
+			<table>
+			<tr>
+				<td class="navbar"><a href="#grp">Group</a></td>
+				<td class="navbar"><a href="#files">Files</a></td>
+			</tr>
+			<tr class="content">
+				<td id=grp> PLOPI</td>
+				<td id=files> PLOPA</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+	
 {% endblock %}
 
 {% block breadcrumbs %}

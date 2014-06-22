@@ -28,3 +28,69 @@ h1 {
 	text-align: center;
 	font-size: 0.9em;
 }
+
+#overall {
+	position: relative;
+	border: 1px solid black;
+	margin: 1.5%;
+	width: 90%;
+	display: inline-block;
+}
+
+#info {
+	position: absolute;
+	border: 1px solid black;
+	margin: 0;
+	right: 0;
+	display: inline-block;
+	height: 100%;
+	width: 69%;
+}
+
+#students {
+	display: inline-block;
+	width: 300px;
+	padding: 2%;
+	text-align: center;
+	overflow: hidden;
+}
+
+#students.button {
+	left: 114px;
+}
+
+.navbar {
+	position: relative;
+	height: 13%;
+	width: 100%;
+	margin: auto;
+	padding: auto;
+	top: 0;
+	border: 3px solid white;
+	border-collapse: collapse;
+	background-color: #9DCADE;
+}
+
+.navbar a:link {
+	color: #fff;
+	font-variant: small-caps;
+	text-align: right;
+	font-size: 1.2em;
+}
+#content {
+	position: relative;
+	height: 87%;
+	bottom: 0;
+}
+
+/*
+**
+** Display of tabs
+**
+*/
+
+#grp {display: none;}
+#grp:target {display: block;}
+
+#files {display: none;}
+#files:target {display: block;}

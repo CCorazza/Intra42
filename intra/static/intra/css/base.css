@@ -48,8 +48,7 @@ input[type=search]:focus {
 	background-color: #FFF;
 	top: 42px;
 	left: 15%;
-	width: 88%;
-	height: 95%;
+	width: 85%;
 }
 
 #nav {
@@ -110,11 +109,18 @@ input[type=search]:focus {
 	height: 36px;
 }
 
+#log {
+	font-size: 0.8em;
+}
+ #icnlog {
+ 	height: 21px;
+ }
+
 /* Connect */
 
 #connect {
 	position: absolute;
-	top: 0;
+	top: 9px;
 	left: 21%;
 	z-index: 3;
 	overflow: visible;
@@ -129,10 +135,13 @@ input[type=search]:focus {
 	position: relative;
 	background-color: #52B2DE;
 	border: none;
-	left: 48%;
 	color: #fff;
 	font-variant: small-caps;
 	font-size: 1.2em;
+}
+
+.buttonlog {
+	left: 48%;
 }
 
 /* BreadCrumb */
