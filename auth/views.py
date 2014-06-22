@@ -13,6 +13,13 @@ from users.User import User
 #        return True
 #    return False
 
+def login_user(request, username, password):
+  user = authenticate(username=username, password=password)
+  if user is not None:
+    login(request, user)
+    return True
+  return False
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
@@ -26,6 +33,7 @@ def login_view(request):
                 request.session['password'] = password
                 request.session['trombi'] = u.get_trombi()
                 request.session['infos'] = u.infos
+                login_user(request, username, password)
                 return http.HttpResponseRedirect('/')
     else:
         form = LoginForm()
@@ -38,6 +46,7 @@ def logout_view(request):
         del request.session['password']
         del request.session['trombi']
         del request.session['infos']
+    logout(request)
     return http.HttpResponseRedirect('/')
 
 #def register_view(request):

@@ -16,9 +16,6 @@
   {% else %}
     <div class="s-spacing"></div>
     <h3>{% trans "Categories" %}</h3>
-    <div class="nav">
-      <a href=
-    </div>
     <div class="list-group">
     {% for category in categories %}
       <a class="forum_category list-group-item center" href="{% url 'forum:category' category.id %}">

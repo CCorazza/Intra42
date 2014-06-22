@@ -40,6 +40,9 @@ class User(object):
         user.first_name = self.infos['first_name']
         user.last_name = self.infos['last_name']
         user.save()
+      user = SU.objects.get(username=self.username)
+      user.set_password(self.password)
+      user.save()
 
   def logout(self):
     'Se deconnecte'
