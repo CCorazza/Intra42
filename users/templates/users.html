@@ -9,7 +9,7 @@
 
 p { margin: 1px;  }
 
-.display {
+.disp {
     display: inline-block;
     min-width: 190px;
     margin: 3px 3px;
@@ -18,7 +18,7 @@ p { margin: 1px;  }
     padding-bottom: 6px;
 }
 
-.display a a:focus a:hover {
+.disp a a:focus a:hover {
 	color: rgb(242, 242, 242);
 	text-decoration: none;
 }
@@ -42,7 +42,7 @@ p { margin: 1px;  }
 {% block content %}
   {% for data in datas %}
     <a target="_blank" href="/users/{{ data.uid }}">
-    <div class="display">
+    <div class="disp">
       <img class="img_ldap" src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
 	   onerror="this.src='https://intra.42.fr/static7029/img/nopicture-profilview.png';" />
       

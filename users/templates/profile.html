@@ -14,7 +14,7 @@
   	margin-top: 10%;
   }
 
-  .display {
+  .disp {
   	min-width: 300px;
   	margin: 10% 1%;
   }
@@ -23,11 +23,11 @@
 {% block content %}
   {% if data %}
   <table id="table_profile">
-    <td class="display">
+    <td class="disp">
       <img class="profile_pic" src="http://cdn.42.fr/userprofil/profilview/{{ data.uid }}.jpg"
 	   onerror="this.src='https://intra.42.fr/static7029/img/nopicture-profilview.png';"/>
     </td>
-    <td class="display">
+    <td class="disp">
       <p><b>{{ data.cn }}</b></p>
       <p>Login: {{ data.uid }}</p>
       {% if data.location == 'Hors-Ligne' %}
@@ -42,7 +42,7 @@
     </td>
   </table>
   {% else %}
-    <div class="display">
+    <div class="disp">
       <p>This user does not exist. :(</p>
     </div>
   {% endif %}
