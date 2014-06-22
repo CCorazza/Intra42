@@ -21,20 +21,9 @@
 			  {% else %}"categories2"
 			  {% endif %}>
 		<a class="cat" href="/modules/{{module.uid}}">{{ module.name }}</a>
-		Starts on {{module.begin}} and ends on {{module.end}}.
+		Starts on {{ module.begin }} and ends on {{ module.end }}.
 		{% if not module.registered %}<button class="buttonreg"> Register </button> {% endif %}
 	</p>
-	{% endfor %}	{% for module in modules %}
-	<p class="display">{{module.name}}</p>
-	{% for activity in module %}
-	<p class=
-    		  {% if forloop.counter0|divisibleby:2 %}"categories1"
-			  {% else %}"categories2"
-			  {% endif %}>
-		<a class="cat" href="module/{{activity.url}}">{{ activity.name }}</a>
-		Starts on {{module.begin}} and ends on {{module.end}}.
-	</p>
-	{% endfor %}
 	{% endfor %}
 {% endblock %}
 
