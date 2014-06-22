@@ -115,6 +115,11 @@ input[type=search]:focus {
  #icnlog {
  	height: 21px;
  }
+ 
+ .display {
+	width: 100%;
+	background-color: #E8FAFF;
+}
 
 /* Connect */
 

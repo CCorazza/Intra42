@@ -6,24 +6,38 @@
 
 {% block extra_css %}
   <link href="{% static 'intra/css/modules.css' %}" rel="stylesheet" media="all">
+  <link href="{% static 'intra/css/learning.css' %}" rel="stylesheet" media="all">
 {% endblock %}
 
 {% block content %}
-	<h1> Modules </h1>
+	<h1> Courses </h1>
 	<br />
 		<div id="registered">
 			<img src="https://cdn1.iconfinder.com/data/icons/brain-games/128/Brain-Games-grey.png"><br /><br />
 			<p>Those are not the Courses you're looking for.</p><br />
 		</div>
 	{% for module in modules %}
+	<p class="display">{{module.name}}</p>
+	{% for activity in module %}
 	<p class=
     		  {% if forloop.counter0|divisibleby:2 %}"categories1"
 			  {% else %}"categories2"
 			  {% endif %}>
-		<a class="cat" href="{{module.url}}">{{ module.name }}</a>
+		<a class="cat" href="learning/{{activity.url}}">{{ activity.name }}</a>
 		Starts on {{module.begin}} and ends on {{module.end}}.
 	</p>
 	{% endfor %}
+	{% endfor %}
+	<p class="display">Exemple Module</p>
+	<p class="categories1">
+		<a class="cat" href="learning/{{activity.url}}">Exemple Activite</a>
+		Starts on {{module.begin}} and ends on {{module.end}}.
+	</p>
+	<p class="categories2">
+		<a class="cat" href="{{activity.url}}">Exemple Activite</a>
+		Starts on {{module.begin}} and ends on {{module.end}}.
+	</p>
+
 {% endblock %}
 
 {% block breadcrumbs %}

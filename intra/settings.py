@@ -57,6 +57,7 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'intra', 'templates'),
     os.path.join(BASE_DIR, 'modules', 'templates'),
     os.path.join(BASE_DIR, 'activities', 'templates'),
+    os.path.join(BASE_DIR, 'learning', 'templates'),
 )
 
 PYBB_TEMPLATE = 'intra/base.html'
