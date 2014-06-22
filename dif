@@ -1,0 +1,117 @@
+diff --git a/intra/settings.py b/intra/settings.py
+index 4ee24ae..4083deb 100755
+--- a/intra/settings.py
++++ b/intra/settings.py
+@@ -24,6 +24,7 @@ INSTALLED_APPS = (
+     'django.contrib.messages',
+     'django.contrib.staticfiles',
+     'widget_tweaks',
++    'activities',
+     'auth',
+     'forum',
+     'modules',
+@@ -54,6 +55,7 @@ LOCALE_PATHS = (
+ TEMPLATE_DIRS = (
+     os.path.join(BASE_DIR, 'intra', 'templates'),
+     os.path.join(BASE_DIR, 'modules', 'templates'),
++    os.path.join(BASE_DIR, 'activities', 'templates'),
+ )
+ 
+ PYBB_TEMPLATE = 'intra/base.html'
+diff --git a/intra/static/intra/css/modules.css b/intra/static/intra/css/modules.css
+index a117b82..51ba6bf 100644
+--- a/intra/static/intra/css/modules.css
++++ b/intra/static/intra/css/modules.css
+@@ -48,8 +48,9 @@ h1 {
+ }
+ 
+ #students {
++	border: 1px solid black;
++	position: absolute;
+ 	display: inline-block;
+-	width: 300px;
+ 	padding: 2%;
+ 	text-align: center;
+ 	overflow: hidden;
+@@ -76,10 +77,11 @@ h1 {
+ 	text-align: right;
+ 	font-size: 1.2em;
+ }
+-#content {
++.content {
+ 	position: relative;
+ 	height: 87%;
+ 	bottom: 0;
++	background-color: #DEDEDE;
+ }
+ 
+ /*
+diff --git a/intra/urls.py b/intra/urls.py
+index 11260fb..07b3a79 100755
+--- a/intra/urls.py
++++ b/intra/urls.py
+@@ -4,6 +4,7 @@ from django.contrib import admin
+ from django.utils.translation import get_language
+ from intra import views
+ 
++
+ import auth.urls
+ import forum.urls
+ import modules.urls
+diff --git a/modules/templates/modules/index.html b/modules/templates/modules/index.html
+index 0bd1099..60533c4 100644
+--- a/modules/templates/modules/index.html
++++ b/modules/templates/modules/index.html
+@@ -12,36 +12,9 @@
+ 	<h1> Module: <span class="tmp">Nom du module</span></h1>
+ 	<p id="time">
+ 		From <span class="tmp"> Date_Debut </span> to <span class="tmp"> Date_FIN </span>.
+-		<br />
+-		You have <span class="tmp">{.{variable|timeuntil:othervariable}}</span> days left.
+-		<!-- Django offre des filtres divers et varies, regarde
+-			http://www.webforefront.com/django/usebuiltindjangofilters.html 
+-			avec un ctrl+f sur timeuntil :)
+-			-->
+ 	</p>
+ 	<br />
+ 	<table id="overall">
+-	<tr>
+-		<td id="students">
+-			<img src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__android.png"><br />
+-			<span class="tmp">nb_registered</span> students are registered.<br /><br />
+-			{% if not module.registered %}
+-			<button class="button" type="submit" class="btn btn-default">Register</button>
+-			{% endif %}
+-		</td>
+-		<td id="info">
+-			<table>
+-			<tr>
+-				<td class="navbar"><a href="#grp">Group</a></td>
+-				<td class="navbar"><a href="#files">Files</a></td>
+-			</tr>
+-			<tr class="content">
+-				<td id=grp> PLOPI</td>
+-				<td id=files> PLOPA</td>
+-			</tr>
+-			</table>
+-		</td>
+-	</tr>
+ 	</table>
+ 	
+ {% endblock %}
+diff --git a/modules/urls.py b/modules/urls.py
+index 4100e35..7841d0d 100644
+--- a/modules/urls.py
++++ b/modules/urls.py
+@@ -1,8 +1,10 @@
+ from django.conf.urls import patterns, url
+ 
+ from modules import views
++from activities import views
++import activities.urls
+ 
+ urlpatterns = patterns('',
+     url(r'^$', views.index_view, name='index'),
+-    #url(r'^(?P<cat>[^/]*)[/]?$', views.modules_view, name='modules'),
++    url(r'^(?P<act>[^/]*)[/]?$', views.activity_view, name='activities'),
+ )

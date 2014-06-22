@@ -24,6 +24,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'activities',
     'auth',
     'forum',
     'modules',
@@ -54,6 +55,7 @@ LOCALE_PATHS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'intra', 'templates'),
     os.path.join(BASE_DIR, 'modules', 'templates'),
+    os.path.join(BASE_DIR, 'activities', 'templates'),
 )
 
 PYBB_TEMPLATE = 'intra/base.html'

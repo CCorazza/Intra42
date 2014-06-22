@@ -48,8 +48,9 @@ h1 {
 }
 
 #students {
+	border: 1px solid black;
+	position: absolute;
 	display: inline-block;
-	width: 300px;
 	padding: 2%;
 	text-align: center;
 	overflow: hidden;
@@ -76,10 +77,11 @@ h1 {
 	text-align: right;
 	font-size: 1.2em;
 }
-#content {
+.content {
 	position: relative;
 	height: 87%;
 	bottom: 0;
+	background-color: #DEDEDE;
 }
 
 /*

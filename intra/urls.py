@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.utils.translation import get_language
 from intra import views
 
+import activities.urls
 import auth.urls
 import forum.urls
 import modules.urls
@@ -29,6 +30,8 @@ urlpatterns = patterns('',
     url(r'^users/', include(users.urls, namespace='users')),
     # Modules
     url(r'^modules/', include(modules.urls, namespace='modules')),
+    # Account management
+    url(r'^activities/', include(activities.urls, namespace='activities')),
     # Internationalization
     url(r'^i18n/', include(i18n))
 )
