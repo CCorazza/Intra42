@@ -9,32 +9,22 @@
 {% endblock %}
 
 {% block content %}
-	<h1> Module: <span class="tmp">Nom du module</span></h1>
-	<p id="time">
-		From <span class="tmp"> Date_Debut </span> to <span class="tmp"> Date_FIN </span>.
-	</p>
+	<h1> Modules </h1>
 	<br />
 		<div id="registered">
-			<img src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__android.png"><br />
-			<span class="tmp">nb_registered</span> students are registered.<br /><br />
-			{% if not module.registered %}
-			<button class="button" type="submit" class="btn btn-default">Register to This Module</button>
-			{% endif %}
+			<img src="https://cdn1.iconfinder.com/data/icons/brain-games/128/Brain-Games-grey.png"><br /><br />
+			<p>Those are not the modules you're looking for.</p><br />
 		</div>
-		<div id="describe">
-			<p> {{ module.description }}
-				En Attendant Godot.
-			</p>
-		</div>
-	{% for activity in activities %}
+	{% for module in modules %}
 	<p class=
     		  {% if forloop.counter0|divisibleby:2 %}"categories1"
 			  {% else %}"categories2"
 			  {% endif %}>
-		<a class="cat" href="">{{ activity }}</a>
-		{% if not activity.registered %}<button class="buttonreg"> Register </button> {% endif %}
-	{% endfor %}
+		<a class="cat" href="">{{ module.name }}</a>
+		Starts on {{module.begin}} and ends on {{module.end}}.
+		{% if not module.registered %}<button class="buttonreg"> Register </button> {% endif %}
 	</p>
+	{% endfor %}
 {% endblock %}
 
 {% block breadcrumbs %}

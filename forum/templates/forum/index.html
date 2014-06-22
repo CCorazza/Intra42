@@ -3,6 +3,11 @@
 
 {% block title %}Forum{% endblock %}
 
+{% block extra_css %}
+  <link href="{% static 'intra/css/forum:w
+  .css' %}" rel="stylesheet" media="all">
+{% endblock %}
+
 {% block content %}
 <div class="jumbotron">
   <h1>{% trans "Forum" %}</h1>
@@ -11,7 +16,9 @@
   {% else %}
     <div class="s-spacing"></div>
     <h3>{% trans "Categories" %}</h3>
-    <div class="xs-spacing"></div>
+    <div class="nav">
+      <a href=
+    </div>
     <div class="list-group">
     {% for category in categories %}
       <a class="forum_category list-group-item center" href="{% url 'forum:category' category.id %}">
@@ -21,6 +28,7 @@
     </div>
   {% endif %}
 </div>
+
 {% endblock %}
 
 {% block breadcrumbs %}
